@@ -71,11 +71,28 @@ public class ListaController implements ActionListener {
             for(Pacientes MiListaPaciente: listaLocal)
             {
                Cadena = Cadena + MiListaPaciente.getApellidos()+" "+MiListaPaciente.getNombre()+"\n";
-               this.VistaPacientes.txtListaPacienteB.setText(Cadena);
+               this.VistaPacientes.txtListaPacienteB.setText(Cadena);  
             }
                 this.VistaLista.txtApellidos.setText("");
                 this.VistaLista.txtNombre.setText("");
-        }       
+        }
+        
+        if(e.getSource() == this.VistaPacientes.btnAtenderA)
+        {
+            this.ModeloLista.DesEncolar();
+            this.VistaPacientes.txtListaPacienteA.setText("");
+            JOptionPane.showMessageDialog(null, "Paciente atendido!!!");
+            
+        }
+        
+        if(e.getSource() == this.VistaPacientes.btnAtenderB)
+        {
+            this.ModeloLista1.DesEncolar();
+            this.VistaPacientes.txtListaPacienteB.setText("");
+            JOptionPane.showMessageDialog(null, "Paciente atendido!!!");
+            
+        }
+        
         if(e.getSource() == this.VistaLista.btnListaPacientes)
         {
             this.VistaPacientes.setLocationRelativeTo(null);
