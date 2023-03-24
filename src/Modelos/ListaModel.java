@@ -11,8 +11,7 @@ public class ListaModel {
     {
        Pacientes nuevoCliente = new Pacientes(ape,nom); 
        this.ListaPaciente.add(nuevoCliente);
-       
-       JOptionPane.showMessageDialog(null,"Paciente agregado a la lista!!!");       
+    
     }
     
     public  Queue ListarPaciente()

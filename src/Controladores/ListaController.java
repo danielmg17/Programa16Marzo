@@ -54,8 +54,10 @@ public class ListaController implements ActionListener {
             for(Pacientes MiListaPaciente: listaLocal)
             {
                Cadena = Cadena + MiListaPaciente.getApellidos()+" "+MiListaPaciente.getNombre()+"\n";
-               this.VistaPacientes.txtListaPacienteA.setText(Cadena);
+               
             }
+                this.VistaPacientes.txtListaPacienteA.setText(Cadena);                      
+                JOptionPane.showMessageDialog(null,"Paciente agregado a la lista!!!");   
                 this.VistaLista.txtApellidos.setText("");
                 this.VistaLista.txtNombre.setText("");
         }
@@ -71,8 +73,10 @@ public class ListaController implements ActionListener {
             for(Pacientes MiListaPaciente: listaLocal)
             {
                Cadena = Cadena + MiListaPaciente.getApellidos()+" "+MiListaPaciente.getNombre()+"\n";
-               this.VistaPacientes.txtListaPacienteB.setText(Cadena);  
+               
             }
+                this.VistaPacientes.txtListaPacienteB.setText(Cadena);
+                JOptionPane.showMessageDialog(null,"Paciente agregado a la lista!!!");   
                 this.VistaLista.txtApellidos.setText("");
                 this.VistaLista.txtNombre.setText("");
         }
@@ -80,7 +84,29 @@ public class ListaController implements ActionListener {
         if(e.getSource() == this.VistaPacientes.btnAtenderA)
         {
             this.ModeloLista.DesEncolar();
-             this.ModeloLista1.EncolarPaciente(this.VistaLista.txtApellidos.getText(),
+            this.ModeloLista.EncolarPaciente(this.VistaLista.txtApellidos.getText(),
+                    this.VistaLista.txtNombre.getText());
+            
+            //mostrar los datos en el text area
+            Queue <Pacientes>listaLocal = this.ModeloLista.ListarPaciente();
+            
+            String Cadena = "";
+            for(Pacientes MiListaPaciente: listaLocal)
+            {
+               Cadena = Cadena + MiListaPaciente.getApellidos()+" "+MiListaPaciente.getNombre()+"\n";
+               
+            }
+                this.VistaPacientes.txtListaPacienteA.setText(Cadena);                      
+                JOptionPane.showMessageDialog(null,"Paciente agregado a la lista!!!");   
+                this.VistaLista.txtApellidos.setText("");
+                this.VistaLista.txtNombre.setText("");
+            
+        }
+        
+        if(e.getSource() == this.VistaPacientes.btnAtenderB)
+        {
+            this.ModeloLista1.DesEncolar();
+            this.ModeloLista1.EncolarPaciente(this.VistaLista.txtApellidos.getText(),
                     this.VistaLista.txtNombre.getText());
             
             //mostrar los datos en el text area
@@ -93,15 +119,8 @@ public class ListaController implements ActionListener {
             }
             this.VistaPacientes.txtListaPacienteB.setText(Cadena);  
             JOptionPane.showMessageDialog(null, "Paciente atendido!!!");
-            
-        }
-        
-        if(e.getSource() == this.VistaPacientes.btnAtenderB)
-        {
-            this.ModeloLista1.DesEncolar();
-            this.VistaPacientes.txtListaPacienteB.setText("");
-            JOptionPane.showMessageDialog(null, "Paciente atendido!!!");
-            
+            this.VistaLista.txtApellidos.setText("");
+            this.VistaLista.txtNombre.setText("");
         }
         
         if(e.getSource() == this.VistaLista.btnListaPacientes)
