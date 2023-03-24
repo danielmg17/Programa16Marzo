@@ -22,8 +22,6 @@ public class ListaModel {
     
     public void DesEncolar()
     { 
-        Pacientes eliminar = ListaPaciente.poll();
-       
-        //this.ListaPaciente.poll();
+        this.ListaPaciente.poll();
     }
 }

@@ -80,7 +80,18 @@ public class ListaController implements ActionListener {
         if(e.getSource() == this.VistaPacientes.btnAtenderA)
         {
             this.ModeloLista.DesEncolar();
-            this.VistaPacientes.txtListaPacienteA.setText("");
+             this.ModeloLista1.EncolarPaciente(this.VistaLista.txtApellidos.getText(),
+                    this.VistaLista.txtNombre.getText());
+            
+            //mostrar los datos en el text area
+            Queue <Pacientes>listaLocal = this.ModeloLista1.ListarPaciente();
+            
+            String Cadena = "";
+            for(Pacientes MiListaPaciente: listaLocal)
+            {
+               Cadena = Cadena + MiListaPaciente.getApellidos()+" "+MiListaPaciente.getNombre()+"\n";              
+            }
+            this.VistaPacientes.txtListaPacienteB.setText(Cadena);  
             JOptionPane.showMessageDialog(null, "Paciente atendido!!!");
             
         }
